@@ -14,16 +14,16 @@ class Result(int, Enum):
     WIN = Z = 6
 
 
-MOVE_FOR_RESULT = {
-    (Result.LOSE, Move.PAPER): Move.ROCK,
-    (Result.LOSE, Move.ROCK): Move.SCISSORS,
-    (Result.LOSE, Move.SCISSORS): Move.PAPER,
-    (Result.DRAW, Move.PAPER): Move.PAPER,
-    (Result.DRAW, Move.ROCK): Move.ROCK,
-    (Result.DRAW, Move.SCISSORS): Move.SCISSORS,
-    (Result.WIN, Move.PAPER): Move.SCISSORS,
-    (Result.WIN, Move.ROCK): Move.PAPER,
-    (Result.WIN, Move.SCISSORS): Move.ROCK,
+MOVE_FOR_RESULT: dict[Move, Result] = {
+    (Move.PAPER, Result.LOSE): Move.ROCK,
+    (Move.ROCK, Result.LOSE): Move.SCISSORS,
+    (Move.SCISSORS, Result.LOSE): Move.PAPER,
+    (Move.PAPER, Result.DRAW): Move.PAPER,
+    (Move.ROCK, Result.DRAW): Move.ROCK,
+    (Move.SCISSORS, Result.DRAW): Move.SCISSORS,
+    (Move.PAPER, Result.WIN): Move.SCISSORS,
+    (Move.ROCK, Result.WIN): Move.PAPER,
+    (Move.SCISSORS, Result.WIN): Move.ROCK,
 }
 
 
@@ -38,7 +38,7 @@ def main() -> None:
     games = (parse_line(line) for line in input_text.splitlines())
 
     player_scores = (
-        MOVE_FOR_RESULT[result, opponent_move] + result
+        MOVE_FOR_RESULT[opponent_move, result] + result
         for opponent_move, result in games
     )
 

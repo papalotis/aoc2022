@@ -8,7 +8,7 @@ class Move(int, Enum):
     SCISSORS = C = 3
 
 
-class Result(Enum):
+class Result(int, Enum):
     LOSE = X = 0
     DRAW = Y = 3
     WIN = Z = 6
@@ -38,7 +38,7 @@ def main() -> None:
     games = (parse_line(line) for line in input_text.splitlines())
 
     player_scores = (
-        MOVE_FOR_RESULT[result, opponent_move] + result.value
+        MOVE_FOR_RESULT[result, opponent_move] + result
         for opponent_move, result in games
     )
 

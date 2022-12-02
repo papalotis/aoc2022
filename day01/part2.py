@@ -17,7 +17,6 @@ def main() -> None:
     input_text = (Path(__file__).parent / "input.txt").read_text()
 
     print(sum(sorted(calories_per_elf(input_text.splitlines()))[-3:]))
-    
 
 
 if __name__ == "__main__":

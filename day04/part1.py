@@ -1,15 +1,11 @@
+import re
 from pathlib import Path
 
 
 def parse_line(line: str) -> tuple[tuple[int, int], tuple[int, int]]:
-
-    pair_1, pair_2 = line.split(",")
-
-    pair_1_start, pair_1_end = pair_1.split("-")
-    pair_2_start, pair_2_end = pair_2.split("-")
-    return tuple(
-        ((int(pair_1_start), int(pair_1_end)), (int(pair_2_start), int(pair_2_end)),)
-    )
+    match = re.match(r"(\d+)-(\d+),(\d+)-(\d+)", line)
+    start_1, end_1, start_2, end_2 = map(int, match.groups())
+    return ((start_1, end_1), (start_2, end_2))
 
 
 def main() -> None:

@@ -8,7 +8,6 @@ def parse_line(line: str) -> tuple[tuple[int, int], tuple[int, int]]:
     return ((start_1, end_1), (start_2, end_2))
 
 
-
 def main() -> None:
     input_text = (Path(__file__).parent / "input.txt").read_text()
 

@@ -6,7 +6,6 @@ import numpy as np
 
 
 def direction_line_n_visible(value: int, line: np.ndarray) -> int:
-
     mask_is_lower_than_value = line < value
     is_visible_mask = np.logical_and.accumulate(mask_is_lower_than_value)
     out = is_visible_mask.sum() + 1 * (False in is_visible_mask)

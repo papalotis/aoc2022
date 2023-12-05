@@ -17,7 +17,6 @@ def parse_input(
 
     # parse stacks
     for line in line_iter:
-
         if line == "":
             # stop parsing stacks
             break

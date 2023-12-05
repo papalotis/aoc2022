@@ -65,6 +65,7 @@ def move_tail(new_head: Vector2D, old_head: Vector2D, tail: Vector2D) -> Vector2
 
     return tail
 
+
 def main() -> None:
     input_text = (Path(__file__).parent / "input.txt").read_text()
 
@@ -105,7 +106,6 @@ U 20"""
                 )
                 new_rope_elements.append(element_behind_position)
 
-
             rope_elements[:] = new_rope_elements
             tail_positions.add(rope_elements[-1])
             print(rope_elements[-1])
@@ -116,22 +116,20 @@ U 20"""
             #     plt.plot([x], [y], 'ro')
             #     plt.xlim(-20, 20)
             #     plt.ylim(-20, 20)
-            
+
             # plt.plot([rope_elements[-1][0]], [rope_elements[-1][1]], 'ko')
 
             # plt.show()
 
     for tail_pos in tail_positions:
-        plt.plot([tail_pos[0]], [tail_pos[1]], 'ko')
+        plt.plot([tail_pos[0]], [tail_pos[1]], "ko")
         plt.xlim(-20, 20)
         plt.ylim(-20, 20)
 
     plt.show()
-
 
     print(len(tail_positions))
 
 
 if __name__ == "__main__":
     main()
-    

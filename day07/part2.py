@@ -3,7 +3,6 @@ from pathlib import Path
 
 
 def extract_direct_file_size_for_directories(lines: list[str]) -> dict[Path, int]:
-
     active_directory: Path | None = None
 
     direct_directory_size: defaultdict[Path, int] = defaultdict(int)
@@ -32,7 +31,6 @@ def extract_direct_file_size_for_directories(lines: list[str]) -> dict[Path, int
 
 
 def solve(lines: list[str]) -> None:
-
     direct_directory_size = extract_direct_file_size_for_directories(lines)
 
     final_sizes: dict[Path, int] = {}

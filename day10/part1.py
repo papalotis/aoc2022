@@ -1,4 +1,3 @@
-
 from pathlib import Path
 
 
@@ -15,6 +14,7 @@ def generate_value_for_each_cycle(lines: list[str]) -> None:
         else:
             raise ValueError(f"Unknown line: {line:r}")
 
+
 def calculate_signal_strength(lines: list[str]) -> int:
     relevant_cycles = (v + 20 for v in range(0, 201, 40))
     next_relevant_cycle = next(relevant_cycles)
@@ -27,9 +27,10 @@ def calculate_signal_strength(lines: list[str]) -> int:
             except StopIteration:
                 break
 
+
 def main() -> None:
     input_text = (Path(__file__).parent / "input.txt").read_text()
-    
+
     print(sum(calculate_signal_strength(input_text.splitlines())))
 
 

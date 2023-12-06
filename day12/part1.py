@@ -66,7 +66,6 @@ def main(fname: str) -> None:
     start_node = start[0] * maze.shape[1] + start[1]
     end_node = end[0] * maze.shape[1] + end[1]
 
-
     shortest_path_length = nx.shortest_path_length(graph, start_node, end_node)
     print(shortest_path_length)
 

@@ -64,11 +64,16 @@ def main(fname: str) -> None:
 
     # convert start and end to index
     start_nodes = np.nonzero(maze.ravel() == 0)[0]
-    
-    end_node = end[0] * maze.shape[1] + end[1]
-    shortest_paths_length: dict[int, int] = nx.shortest_path_length(graph, target=end_node)
 
-    print(min(shortest_paths_length.get(start_node, np.inf) for start_node in start_nodes))
+    end_node = end[0] * maze.shape[1] + end[1]
+    shortest_paths_length: dict[int, int] = nx.shortest_path_length(
+        graph, target=end_node
+    )
+
+    print(
+        min(shortest_paths_length.get(start_node, np.inf) for start_node in start_nodes)
+    )
+
 
 if __name__ == "__main__":
     try:
